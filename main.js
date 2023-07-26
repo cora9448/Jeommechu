@@ -1,6 +1,6 @@
-// 랜덤 메뉴 호출 함수
+// 메뉴 호출 함수
 function getRandomMenu() {
-    const menuList = getMenuList(); // menuDatabase.js에서 정의한 함수를 호출하여 메뉴 리스트를 가져옴
+    const menuList = getMenuList();
 
     // 랜덤하게 2~3개의 메뉴 선택
     const numChoices = Math.floor(Math.random() * 2) + 2;
@@ -17,5 +17,13 @@ function getRandomMenu() {
 
     // 결과를 웹 페이지에 표시
     const resultElement = document.getElementById("result");
-    resultElement.textContent = "오늘 먹고 싶은 메뉴: " + selectedMenus.join(", ");
+    resultElement.textContent = "" + selectedMenus.join(", ");
+}
+
+// 각 페이지를 보여주는 함수
+function showPage(pageNumber) {
+    // 여기서 각 페이지에 대한 로직을 구현합니다.
+    // 이 예시에서는 단순히 페이지 번호만 출력합니다.
+    const resultElement = document.getElementById("result");
+    resultElement.textContent = "현재 보고 있는 페이지: " + pageNumber;
 }

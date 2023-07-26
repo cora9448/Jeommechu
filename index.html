@@ -6,9 +6,22 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>오늘 뭐 먹지?</h1>
-    <p id="result">메뉴를 선택해주세요.</p>
-    <button onclick="getRandomMenu()">랜덤 메뉴 호출</button>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="page1.html">전체 메뉴 목록</a></li>
+                <li><a href="page2.html">2번 페이지</a></li>
+                <li><a href="page3.html">3번 페이지</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <h1>오늘 뭐 먹지?</h1>
+            <p id="result">2~3개의 랜덤 메뉴를 제공합니다</p>
+            <button onclick="getRandomMenu()">랜덤 메뉴 추천</button>
+            <div class="random-menus">
+            </div>
+        </div>
+    </div>
 
     <script src="menuDatabase.js"></script>
     <script src="main.js"></script>

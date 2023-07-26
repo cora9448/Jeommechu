@@ -1,6 +1,47 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
+  background-color: #f2f2f2; /* 옅은 회색 배경 색 */
+  height: 100vh; /* 화면 세로 길이를 기준으로 정중앙 배치 */
+  margin: 0;
+}
+
+.container {
+  display: flex;
+}
+
+nav {
+  background-color: #f2f2f2;
+  min-width: 200px;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin-bottom: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.content {
+  padding: 20px;
+  flex: 1; /* Flexbox 속성 추가 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#result {
+  text-align: center; /* 문구를 가운데로 정렬 */
+  font-size: 18px; /* 클자 크기를 키움 */
 }
 
 .menu-container {
@@ -8,11 +49,11 @@ body {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 28px; /* 클자 크기를 키움 */
 }
 
 button {
-  padding: 10px 20px;
+  padding: 12px 24px; /* 클자 크기를 키움 */
   margin: 10px;
 }
 
