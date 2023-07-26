@@ -6,7 +6,7 @@
 <summary>오늘 뭐 먹지 사이트</summary>
 <div markdown="1">    
   
-  jeommechu.netlify.app
+  https://jeommechu.netlify.com/
   
 </div>
 </details>
