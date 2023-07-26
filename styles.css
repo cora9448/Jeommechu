@@ -1,24 +1,21 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  margin: 20px;
+}
+
+.menu-container {
+  margin-top: 50px;
 }
 
 h1 {
-  color: #333;
+  font-size: 24px;
 }
 
 button {
   padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
   margin: 10px;
 }
 
-div {
-  margin: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
+.random-menus {
+  margin-top: 20px;
 }

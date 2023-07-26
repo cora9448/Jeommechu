@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>오늘뭐먹지 웹</title>
+    <meta charset="UTF-8">
+    <title>오늘뭐먹지</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>오늘 뭐 먹지 웹</h1>
+    <h1>오늘 뭐 먹지?</h1>
+    <p id="result">메뉴를 선택해주세요.</p>
     <button onclick="getRandomMenu()">랜덤 메뉴 호출</button>
-    <div id="menuList"></div>
-    <script src="script.js"></script>
+
+    <script src="menuDatabase.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
