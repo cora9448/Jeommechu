@@ -31,11 +31,15 @@ function getRandomMenu() {
         menuContainer.appendChild(menuElement);
     }
 }
-
 // 투표 함수
 function voteForMenu(menu) {
     fetch(`/vote/${menu}`, { method: "POST" }) // 서버에 POST 요청으로 음식 투표 전송
-        .then((response) => response.json())
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('투표 요청에 실패했습니다.');
+            }
+            return response.json();
+        })
         .then((data) => {
             alert(`${menu} 투표가 완료되었습니다!`);
         })
@@ -44,3 +48,4 @@ function voteForMenu(menu) {
             alert("투표 중 오류가 발생했습니다. 다시 시도해주세요.");
         });
 }
+
