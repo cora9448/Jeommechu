@@ -1,4 +1,3 @@
-// 메뉴 호출 함수
 function getRandomMenu() {
     const menuList = getMenuList();
 
@@ -68,20 +67,20 @@ function resetWeeklyPopularMenu() {
 
 // 주간 인기 메뉴 초기화 함수
 function initializeWeeklyPopularMenu() {
-    const popularMenuListWithVotes = calculatePopularMenuWithVotes();
+    const popularMenuList = calculatePopularMenu();
     const popularMenuContainer = document.getElementById("popular-menu-list");
 
     popularMenuContainer.innerHTML = ""; // 기존에 표시된 인기 메뉴 초기화
 
-    for (const { menu, votes } of popularMenuListWithVotes) {
+    for (const menu of popularMenuList) {
         const menuElement = document.createElement("li");
-        menuElement.textContent = `${menu} (${votes}표)`;
+        menuElement.textContent = menu;
         popularMenuContainer.appendChild(menuElement);
     }
 }
 
-// 주간 인기 메뉴 계산 함수 (투표 수 포함)
-function calculatePopularMenuWithVotes() {
+// 주간 인기 메뉴 계산 함수
+function calculatePopularMenu() {
     const menuVoteCounts = {}; // 각 메뉴의 투표 개수를 저장할 객체
     const menuList = getMenuList(); // 메뉴 리스트를 가져옴
 
@@ -91,17 +90,18 @@ function calculatePopularMenuWithVotes() {
         menuVoteCounts[menu] = voteCount;
     }
 
-    // 투표 개수와 함께 메뉴를 객체 배열로 생성
-    const popularMenuListWithVotes = Object.keys(menuVoteCounts).map(menu => ({
-        menu,
-        votes: menuVoteCounts[menu]
-    }));
+    // 투표 개수에 따라 내림차순으로 정렬하여 상위 3개 메뉴를 반환
+    const popularMenuList = Object.keys(menuVoteCounts)
+        .sort((menuA, menuB) => menuVoteCounts[menuB] - menuVoteCounts[menuA])
+        .slice(0, 3);
 
-    // 투표 개수에 따라 내림차순으로 정렬
-    popularMenuListWithVotes.sort((menuA, menuB) => menuB.votes - menuA.votes);
+    return popularMenuList;
+}
 
-    // 상위 3개 메뉴만 반환
-    return popularMenuListWithVotes.slice(0, 3);
+// 메뉴별 투표 개수를 가져오는 함수 (가정: 로컬 스토리지 사용)
+function getVoteCountForMenu(menu) {
+    const voteCount = localStorage.getItem(menu) || 0; // 로컬 스토리지에서 투표 개수 가져오기
+    return parseInt(voteCount);
 }
 
 // 초기화 작업 수행
